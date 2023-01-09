@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Şirket Düzenle";
+}
+@using SirketUygulamasi.Models
+@model Sirket
+
+<h2>@ViewBag.Title</h2>
+<div style="margin-top:30px">
+    <form action="SirketDuzenle" method="post">
+        @Html.HiddenFor(model => model.SIRKET_ID, new { @class = "form-control", @tabindex = "1", @maxlength = "50" })
+        <div class="row">
+            <div class="col-md-6">
+                <label>Şirket Adı: </label>
+                @Html.TextBoxFor(model => model.SIRKET_ADI, new { @class = "form-control", @tabindex = "1", @maxlength = "50" })
+            </div>
+            <div class="col-md-6">
+                <label> Vergi Dairesi: </label>
+                @Html.TextBoxFor(model => model.VERGI_DAIRESI, new { @class = "form-control", @tabindex = "1", @maxlength = "50" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Vergi Numarası:</label>
+                @Html.TextBoxFor(model => model.VERGI_NUMARASI, new { @class = "form-control", @tabindex = "1", @maxlength = "50" })
+            </div>
+            <div class="col-md-6">
+                <label>Adres Bilgisi:</label>
+                @Html.TextBoxFor(model => model.ADRES, new { @class = "form-control", @tabindex = "1", @maxlength = "50" })
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-12" style="text-align:left">
+                <input class="btn btn-success" type="submit" value="Kaydet" />
+            </div>
+        </div>
+
+    </form>
+</div>

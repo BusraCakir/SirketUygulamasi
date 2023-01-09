@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Şirket Listesi";
+}
+<h2>@ViewBag.Title</h2>
+
+@model List<SirketUygulamasi.Models.Sirket>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<table id="example" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>Şirket Adı</th>
+            <th>Vergi Dairesi</th>
+            <th>Vergi Numarası</th>
+            <th>Adres</th>
+            <th>Düzenle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SIRKET_ADI</td>
+                <td>@item.VERGI_DAIRESI</td>
+                <td>@item.VERGI_NUMARASI</td>
+                <td>@item.ADRES</td>
+                
+                <td><input class="btn btn-success" type="submit" value="Güncelle" onclick="location.href='@Url.Action("SirketDuzenle", "Home" , new { id = @item.SIRKET_ID })'" /> </td>
+                <td><input class="btn btn-danger" type="submit" value="Sil" onclick="location.href='@Url.Action("SirketSil", "Home" , new { id = @item.SIRKET_ID })'" /> </td>
+            </tr>
+        }
+    </tbody>
+</table>
